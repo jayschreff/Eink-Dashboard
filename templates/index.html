@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="location">{{ data.location }}</div>
+        <div class="time">{{ data.time }}</div>
+    </div>
+
+    <!-- Dashboard Grid -->
+    <div class="dashboard">
+
+        <!-- 🌤️ Weather Widget -->
+        <div class="widget">
+            <div class="widget-title">Weather</div>
+
+            <div class="weather-widget">
+                <div class="weather-main">
+    <div class="icon">{{ data.icon }}</div>
+    <div class="temp">{{ data.temp }}</div>
+    </div>
+
+    <div class="status">{{ data.status }}</div>
+
+                <div class="weather-details">
+                    <div>Feels: {{ data.feels_like }}</div>
+                    <div>Humidity: {{ data.humidity }}</div>
+                    <div>Wind: {{ data.windspeed }}</div>
+                </div>
+            </div>
+
+            {% if data.error %}
+            <div class="error">Weather unavailable</div>
+            {% endif %}
+        </div>
+
+        <!-- 📧 Email Widget -->
+        <div class="widget">
+            <div class="widget-title">Email</div>
+
+            <div class="placeholder">
+                No new emails
+            </div>
+        </div>
+
+        <!-- 📅 Calendar Widget -->
+        <div class="widget">
+            <div class="widget-title">Calendar</div>
+
+            <div class="placeholder">
+                No events today
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
