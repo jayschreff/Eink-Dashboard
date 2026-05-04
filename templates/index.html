@@ -25,18 +25,35 @@
             <div class="widget-title">Weather</div>
 
             <div class="weather-widget">
+
+                <!-- Main Weather -->
                 <div class="weather-main">
-    <div class="icon">{{ data.icon }}</div>
-    <div class="temp">{{ data.temp }}</div>
-    </div>
+                    <div class="icon">{{ data.icon }}</div>
+                    <div class="temp">{{ data.temp }}</div>
+                </div>
 
-    <div class="status">{{ data.status }}</div>
+                <div class="status">{{ data.status }}</div>
 
+                <!-- Details -->
                 <div class="weather-details">
                     <div>Feels: {{ data.feels_like }}</div>
                     <div>Humidity: {{ data.humidity }}</div>
                     <div>Wind: {{ data.windspeed }}</div>
                 </div>
+
+                <!-- 🔥 Forecast Strip -->
+                <div class="forecast">
+                    {% for day in data.forecast %}
+                    <div class="forecast-day">
+                        <div class="forecast-name">{{ day.day }}</div>
+                        <div class="forecast-icon">
+                            {{ weather_code_to_icon(day.code) }}
+                        </div>
+                        <div class="forecast-temp">{{ day.temp }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+
             </div>
 
             {% if data.error %}
@@ -47,7 +64,6 @@
         <!-- 📧 Email Widget -->
         <div class="widget">
             <div class="widget-title">Email</div>
-
             <div class="placeholder">
                 No new emails
             </div>
@@ -56,7 +72,6 @@
         <!-- 📅 Calendar Widget -->
         <div class="widget">
             <div class="widget-title">Calendar</div>
-
             <div class="placeholder">
                 No events today
             </div>

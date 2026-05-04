@@ -110,3 +110,34 @@ body {
     font-size: 0.9rem;
     text-align: center;
 }
+/* ---------- Forecast Strip ---------- */
+.forecast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid black;
+}
+
+.forecast-day {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.forecast-name {
+    font-size: 0.9rem;
+}
+
+.forecast-icon {
+    font-size: 1.5rem;
+}
+
+.forecast-temp {
+    font-size: 1rem;
+    font-weight: bold;
+}
