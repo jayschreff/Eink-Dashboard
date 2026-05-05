@@ -2,6 +2,10 @@
 <html>
 <head>
     <title>E-Ink Dashboard</title>
+
+    <!-- Auto refresh (good for e-ink) -->
+    <meta http-equiv="refresh" content="15">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -53,8 +57,30 @@
 
                 {% elif module.id == "bambu" %}
 
-                    <div class="big-text">{{ module.data.status }}</div>
-                    <div class="sub-text">Progress: {{ module.data.progress }}</div>
+                    <div class="printer-main">
+
+                        <div class="big-text">{{ module.data.status }}</div>
+
+                        <div class="sub-text">Progress: {{ module.data.progress }}%</div>
+
+                        {% if module.data.file %}
+                            <div class="sub-text">{{ module.data.file }}</div>
+                        {% endif %}
+
+                        {% if module.data.remaining and module.data.remaining != "--" %}
+                            <div class="sub-text">⏱ {{ module.data.remaining }}</div>
+                        {% endif %}
+
+                        <div class="sub-text">
+                            🌡 {{ module.data.nozzle }}° / {{ module.data.bed }}°
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: {{ module.data.progress }}%"></div>
+                        </div>
+
+                    </div>
 
                 {% endif %}
 

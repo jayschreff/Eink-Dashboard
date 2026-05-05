@@ -107,3 +107,23 @@ body {
 .card.bambu {
     grid-column: span 2;
 }
+
+/* BAMBU PRINTER */
+.printer-main {
+    width: 100%;
+    text-align: center;
+}
+
+/* Progress bar container */
+.progress-bar {
+    width: 90%;
+    height: 8px;
+    border: 2px solid black;
+    margin-top: 8px;
+}
+
+/* Filled portion */
+.progress-fill {
+    height: 100%;
+    background: black;
+}
