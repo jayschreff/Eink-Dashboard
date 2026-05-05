@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def load_config():
     try:
         base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -13,9 +14,14 @@ def load_config():
         print("Missing config.json — using defaults")
         return {
             "location": {
-                "lat": 42.1292,
-                "lon": -80.0851,
+                "lat": 42.1145,
+                "lon": -80.0762,
                 "name": "Erie, PA"
             },
-            "units": "imperial"
+            "units": "imperial",
+            "modules": [
+                {"name": "time", "enabled": True},
+                {"name": "weather", "enabled": True},
+                {"name": "hevy", "enabled": False}
+            ]
         }
